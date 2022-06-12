@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
+import './index.css';
+import Login from './pagina/Login';
+import Signup from './pagina/Signup';
+import {useState} from "react"
+import {
+BrowserRouter,
+Routes,
+Route,
+} from "react-router-dom";
 import './App.css';
+import ContextoTema from './ContextoTema';
+
 
 function App() {
+  
+  
+  function mudaCor(cor){
+    setCorzinha(cor)
+  }
+
+  function mudaTema(){
+    setTema(tema == "0" ? '1' : '0')
+  }
+  const [tema, setTema] = useState("1")
+  const [corzinha, setCorzinha] = useState("1")
+
+
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextoTema.Provider value={ {tema, mudaTema, corzinha, mudaCor} }>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/signup" element={<Signup />}/>
+        </Routes>
+      </BrowserRouter>
+      </ContextoTema.Provider>
   );
 }
 
