@@ -13,15 +13,13 @@ import ContextoTema from '../ContextoTema'
 
 import { BsFillMoonFill } from "react-icons/bs";
 
-import "./css/Signup.css"
-
-export default function Signup(){
+export default function Sigin(){
     const { tema, mudaTema } = useContext(ContextoTema)
     const { corzinha,setCorzinha, mudaCor } = useContext(ContextoTema)
-        return(
-            <BasePage>
+    return(
+        <BasePage>
             <BackgroundColor cor={[tema ,corzinha]}>
-                <ul>
+            <ul>
                     <div>
                     <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
                     <CoresLista onClick={()=>{mudaCor("1")}} cor="#2b75ff"/>
@@ -33,29 +31,29 @@ export default function Signup(){
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG cor={[tema ,corzinha]} onSubmit={(event)=>{event.preventDefault();}}>
-                        <div>
-                            <h2>Criar conta</h2>
-                        </div>
-                        <InputWrapper operacao="signup">
-                            <StyledDiv>
+                <FormBG cor={[tema ,corzinha]} onSubmit={(event)=>{event.preventDefault();}}>
+                    <div>
+                        <h2>Criar conta</h2>
+                    </div>
+
+                    <InputWrapper operacao="signup">
+                         <StyledDiv>
                             <label for="name">Nome</label>
                             <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Pedro"></InputStyled>
                             <label for="name">Sobrenome</label>
                             <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Cardoso"></InputStyled>
-                            </StyledDiv>
-                            <StyledDiv>
-                            <label for="name">Email</label>
-                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="email" placeholder="email@mail.com"></InputStyled>
-                            <label for="name">Senha</label>
-                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="password" placeholder="No mínimo 7 dígitos, letras e numero"></InputStyled>
-                            </StyledDiv>
-                        </InputWrapper>
-
-                        <SubmitStyled type="submit"  cor={[tema ,corzinha]} ></SubmitStyled>
-                        <p>Já tem conta? <StyledLink cor={[tema ,corzinha]} href="/">Entrar na conta</StyledLink></p>
-                    </FormBG>
+                        </StyledDiv>
+                        <StyledDiv>
+                            <label for="name">Nome</label>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Pedro"></InputStyled>
+                            <label for="name">Sobrenome</label>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Cardoso"></InputStyled>
+                        </StyledDiv>
+                    </InputWrapper>
+                    <SubmitStyled type="submit"  cor={[tema ,corzinha]} ></SubmitStyled>
+                    <p>Já tem conta? <StyledLink cor={[tema ,corzinha]} href="/">Entrar na conta</StyledLink></p>
+                </FormBG>
             </BackgroundColor>
-            </BasePage>
-        )
+        </BasePage>
+    )
 }

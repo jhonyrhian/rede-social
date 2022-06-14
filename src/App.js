@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import Login from './pagina/Login';
 import Signup from './pagina/Signup';
+import Sigin from './pagina/Sigin';
 import {useState} from "react"
 import {
 BrowserRouter,
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<Login />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<Signup />}/>
+          <Route path="/sigin" element={<Sigin />}/>
         </Routes>
       </BrowserRouter>
       </ContextoTema.Provider>
