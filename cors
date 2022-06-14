@@ -1,22 +1,5 @@
-import {useState, useEffect, useContext } from 'react'
 
-import BasePage from "./BasePage"
-import InputStyled from "../componente/InputStyled"
-import SubmitStyled from "../componente/SubmitStyled"
-import StyledLink from "../componente/StyledLink"
-import CoresLista from "../componente/CoresLista"
-import BackgroundColor from "../componente/BackgroundColor"
-import InputWrapper from "../componente/InputWrapper"
-import FormBG from "../componente/FormBG"
-import ContextoTema from '../ContextoTema'
 
-import { BsFillMoonFill } from "react-icons/bs";
-
-import "./css/Login.css"
-
-export default function Login(){
-    const { tema, mudaTema } = useContext(ContextoTema)
-    const { corzinha, mudaCor } = useContext(ContextoTema)
     const [index, setIndex] = useState(0)
     // const [tema, setTema] = useState(0)
     const [corTexto, setCorTexto] = useState("#000")
@@ -72,7 +55,7 @@ export default function Login(){
     //                 principal_light:"#0d0d0d",
     //                 principal_dark:"#0a0a0a",
     //                 placeholderBG:"transparent",
-    //                 formBG: "#171717"
+    //                 formBG: "#1f1f1f"
     //             },
     //             {
     //                 principal:"#2470ff",
@@ -80,7 +63,7 @@ export default function Login(){
     //                 principal_dark:"#2470ff",
     //                 placeholderBG:"transparent",
     //                 placeholderCor:"#6d7d9c",
-    //                 formBG:"#171717",
+    //                 formBG:"#14183d",
     //             },
     //             {
     //                 principal:"#ff2277",
@@ -88,7 +71,7 @@ export default function Login(){
     //                 principal_dark:"#ff2277",
     //                 placeholderBG:"transparent",
     //                 placeholderCor:"#b05b7b",
-    //                 formBG:"#171717",
+    //                 formBG:"#381723",
     //             },
     //             {
     //                 principal:"#00ba47",
@@ -96,7 +79,7 @@ export default function Login(){
     //                 principal_dark:"#00ba47",
     //                 placeholderBG:"transparent",
     //                 placeholderCor:"#5a965d",
-    //                 formBG:"#171717",
+    //                 formBG:"#12301a",
                     
     //             },
     //             {
@@ -105,55 +88,21 @@ export default function Login(){
     //                 principal_dark:"#f2aa02",
     //                 placeholderBG:"transparent",
     //                 placeholderCor:"#ad9431",
-    //                 formBG:"#171717",
+    //                 formBG:"#2e1f0f",
     //             }
     //         ]
     //     ])
 
-    
+   
+
         
-    // function mudaCorTema(index){
-    //     setIndex(index)
-    // }
+    function mudaCorTema(index){
+        setIndex(index)
+    }
     // function mudaTema(){
+    //     tema == 0 ? setCorTexto('#fff') : setCorTexto('#000')
 
     //     tema == 0 ? setTema(1) : setTema(0)
-    //     tema == 0 ? setCorTexto('#fff') : setCorTexto('#000')
 
     //     console.log(tema)
     // }
-
-        return(
-            <BasePage>
-            <BackgroundColor cor={[tema ,corzinha]}>
-                <ul>
-                    <div>
-                    <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
-                    <CoresLista onClick={()=>{mudaCor("1")}} cor="#2b75ff"/>
-                    <CoresLista onClick={()=>{mudaCor("2")}} cor="#ff2277"/>
-                    <CoresLista onClick={()=>{mudaCor("3")}} cor="#00ba47"/>
-                    <CoresLista onClick={()=>{mudaCor("4")}} cor="#ffd400"/>
-                    </div>
-                    <div>
-                        <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
-                    </div>
-                </ul>
-                    <FormBG cor={[tema ,corzinha]} onSubmit={(event)=>{event.preventDefault();}}>
-                        <div>
-                            <h2>Entrar</h2>
-                            <p>Insira seu Email e senha para acessar</p>
-                        </div>
-
-                        <InputWrapper>
-                            <InputStyled cor={[tema ,corzinha]} type="text" placeholder="Email"></InputStyled>
-                            <InputStyled cor={[tema ,corzinha]} type="password" placeholder="Senha"></InputStyled>
-                            <StyledLink cor={[tema ,corzinha]} href="https://www.google.com">Esqueci a senha</StyledLink>
-                        </InputWrapper>
-
-                        <SubmitStyled type="submit"  cor={[tema ,corzinha]} ></SubmitStyled>
-                        <p>Não tem conta? <StyledLink cor={[tema ,corzinha]} href="/signup">Crie uma conta agora</StyledLink></p>
-                    </FormBG>
-            </BackgroundColor>
-            </BasePage>
-        )
-}

@@ -20,10 +20,10 @@ function App() {
   }
 
   function mudaTema(){
-    setTema(tema == "0" ? '1' : '0')
+    setTema(tema == '0' ? '1' : '0')
   }
-  const [tema, setTema] = useState("1")
-  const [corzinha, setCorzinha] = useState("1")
+  const [tema, setTema] = useState('0')
+  const [corzinha, setCorzinha] = useState('1')
 
 
 

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect,  useContext} from 'react'
 
 import BasePage from "./BasePage"
 import InputStyled from "../componente/InputStyled"
@@ -10,7 +10,6 @@ import BackgroundColor from "../componente/BackgroundColor"
 import InputWrapper from "../componente/InputWrapper"
 import FormBG from "../componente/FormBG"
 import ContextoTema from '../ContextoTema'
-import { useContext } from 'react'
 
 import { BsFillMoonFill } from "react-icons/bs";
 
@@ -130,20 +129,20 @@ export default function Signup(){
 
         return(
             <BasePage>
-            <BackgroundColor>
+            <BackgroundColor cor={[tema ,corzinha]}>
                 <ul>
                     <div>
-                    <CoresLista onClick={()=>{mudaCorTema("0")}} cor="#363636"/>
-                    <CoresLista onClick={()=>{mudaCorTema("1")}} cor="#2b75ff"/>
-                    <CoresLista onClick={()=>{mudaCorTema("2")}} cor="#ff2277"/>
-                    <CoresLista onClick={()=>{mudaCorTema("3")}} cor="#00ba47"/>
-                    <CoresLista onClick={()=>{mudaCorTema("4")}} cor="#ffd400"/>
+                    <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
+                    <CoresLista onClick={()=>{mudaCor("1")}} cor="#2b75ff"/>
+                    <CoresLista onClick={()=>{mudaCor("2")}} cor="#ff2277"/>
+                    <CoresLista onClick={()=>{mudaCor("3")}} cor="#00ba47"/>
+                    <CoresLista onClick={()=>{mudaCor("4")}} cor="#ffd400"/>
                     </div>
                     <div>
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG>
+                    <FormBG cor={[tema ,corzinha]} onSubmit={(event)=>{event.preventDefault();}}>
                         <div>
                             <h2>Criar conta</h2>
                         </div>
@@ -151,19 +150,19 @@ export default function Signup(){
                         <InputWrapper operacao="signup">
                             <StyledDiv>
                             <label for="name">Nome</label>
-                            <InputStyled operacao="signup" type="text" name="username" placeholder="Pedro"></InputStyled>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Pedro"></InputStyled>
                             <label for="name">Sobrenome</label>
-                            <InputStyled operacao="signup" type="text" name="username" placeholder="Cardoso"></InputStyled>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="text" name="username" placeholder="Cardoso"></InputStyled>
                             </StyledDiv>
                             <StyledDiv>
                             <label for="name">Email</label>
-                            <InputStyled operacao="signup" type="email" placeholder="email@mail.com"></InputStyled>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="email" placeholder="email@mail.com"></InputStyled>
                             <label for="name">Senha</label>
-                            <InputStyled operacao="signup" type="password" placeholder="No mínimo 7 dígitos, letras e numero"></InputStyled>
+                            <InputStyled cor={[tema ,corzinha]} operacao="signup" type="password" placeholder="No mínimo 7 dígitos, letras e numero"></InputStyled>
                             </StyledDiv>
                         </InputWrapper>
 
-                        <SubmitStyled type="submit"></SubmitStyled>
+                        <SubmitStyled type="submit"  cor={[tema ,corzinha]} ></SubmitStyled>
                         <p>Já tem conta? <StyledLink href="/">Entrar na conta</StyledLink></p>
                     </FormBG>
             </BackgroundColor>
