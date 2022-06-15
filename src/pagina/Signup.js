@@ -16,8 +16,10 @@ import { BsFillMoonFill } from "react-icons/bs";
 import "./css/Signup.css"
 
 export default function Signup(){
-    const { tema, mudaTema } = useContext(ContextoTema)
-    const { corzinha,setCorzinha, mudaCor } = useContext(ContextoTema)
+    const { mudaTema } = useContext(ContextoTema)
+    const { mudaCor } = useContext(ContextoTema)
+    const corzinha = localStorage.getItem('corzinha')
+    const tema = localStorage.getItem('tema')
         return(
             <BasePage>
             <BackgroundColor cor={[tema ,corzinha]}>

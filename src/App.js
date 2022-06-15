@@ -14,19 +14,24 @@ import ContextoTema from './ContextoTema';
 
 
 function App() {
+
+  
+  const [tema, setTema] = useState('0')
+  const [corzinha, setCorzinha] = useState('1')
   
   
   function mudaCor(cor){
     setCorzinha(cor)
+    localStorage.setItem('corzinha', cor)
   }
 
   function mudaTema(){
     setTema(tema == '0' ? '1' : '0')
+    localStorage.setItem('tema', tema)
+
+    // localStorage.setItem('tema', (tema== '0' ? '1' : '0'))
   }
-  const [tema, setTema] = useState('0')
-  const [corzinha, setCorzinha] = useState('1')
-
-
+  
 
   
 

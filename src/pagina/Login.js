@@ -15,8 +15,12 @@ import { BsFillMoonFill } from "react-icons/bs";
 import "./css/Login.css"
 
 export default function Login(){
-    const { tema, mudaTema } = useContext(ContextoTema)
-    const { corzinha, mudaCor } = useContext(ContextoTema)
+    // const { mudaTema } = useContext(ContextoTema)
+    const { mudaTema } = useContext(ContextoTema)
+    const { mudaCor } = useContext(ContextoTema)
+    const tema = localStorage.getItem('tema')
+    const corzinha = localStorage.getItem('corzinha')
+    // const { corzinha, mudaCor } = useContext(ContextoTema)
 
 
         return(
