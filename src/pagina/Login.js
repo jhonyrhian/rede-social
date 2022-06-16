@@ -18,14 +18,12 @@ export default function Login(){
     // const { mudaTema } = useContext(ContextoTema)
     const { mudaTema } = useContext(ContextoTema)
     const { mudaCor } = useContext(ContextoTema)
-    const tema = localStorage.getItem('tema')
-    const corzinha = localStorage.getItem('corzinha')
-    // const { corzinha, mudaCor } = useContext(ContextoTema)
+    // const { cor, mudaCor } = useContext(ContextoTema)
 
 
         return(
             <BasePage>
-            <BackgroundColor cor={[tema ,corzinha]}>
+            <BackgroundColor cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]}>
                 <ul>
                     <div>
                     <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
@@ -38,20 +36,20 @@ export default function Login(){
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG cor={[tema ,corzinha]} onSubmit={(event)=>{event.preventDefault();}}>
+                    <FormBG cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} onSubmit={(event)=>{event.preventDefault();}}>
                         <div>
                             <h2>Entrar</h2>
                             <p>Insira seu Email e senha para acessar</p>
                         </div>
 
                         <InputWrapper>
-                            <InputStyled cor={[tema ,corzinha]} type="text" placeholder="Email"></InputStyled>
-                            <InputStyled cor={[tema ,corzinha]} type="password" placeholder="Senha"></InputStyled>
-                            <StyledLink cor={[tema ,corzinha]} href="https://www.google.com">Esqueci a senha</StyledLink>
+                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} type="text" placeholder="Email ou usuário"></InputStyled>
+                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} type="password" placeholder="Senha"></InputStyled>
+                            <StyledLink cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} href="https://www.google.com">Esqueci a senha</StyledLink>
                         </InputWrapper>
 
-                        <SubmitStyled type="submit"  cor={[tema ,corzinha]} ></SubmitStyled>
-                        <p>Não tem conta? <StyledLink cor={[tema ,corzinha]} href="/signup">Crie uma conta agora</StyledLink></p>
+                        <SubmitStyled type="submit"  cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} ></SubmitStyled>
+                        <p>Não tem conta? <StyledLink cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} href="/signup">Crie uma conta agora</StyledLink></p>
                     </FormBG>
             </BackgroundColor>
             </BasePage>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 
-var cores =["#fff","#2470ff","#ff2277","#00ba47","#f2aa02"]
+var cores =["#ffffff","#2470ff","#ff1770","#00ba47","#f2aa02"]
+var coresEscuras = ["#0a0a0a","#0948db","#e80049","#068a36","#db8009"]
 
 
 
@@ -21,8 +22,8 @@ const SubmitStyled = styled.input.attrs({ type: "submit" })`
 
     &:hover{
         cursor: pointer;
-        background-color: ${props => {return props.cor[1]}};
-        box-shadow:${props => {if(props.cor[1] == "#fcfcfc"||props.cor[1] == "#2470ff" ||props.cor[1] == "#ff2277" ||props.cor[1] == "#00ba47" ||props.cor[1] == "#f2aa02"){return ` 0 0 15px ${props.cor[0]}`}}};
+        background-color: ${props => {if(props.cor[0] =='0'){return `${coresEscuras[props.cor[1]]}`}}};
+        box-shadow:${props => {if(props.cor[0] == '1'){return ` 0 0 15px ${cores[props.cor[1]]}90`}}};
         transition: 0.4s
     }
 `;
