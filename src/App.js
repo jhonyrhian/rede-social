@@ -16,27 +16,30 @@ import ContextoTema from './ContextoTema';
 function App() {
 
   
-  const [tema, setTema] = useState('0')
-  const [corzinha, setCorzinha] = useState('1')
-  
-  
+  const [temas, setTema] = useState('0')
+  const [cor, setCor] = useState('0')
+
   function mudaCor(cor){
-    setCorzinha(cor)
-    localStorage.setItem('corzinha', cor)
+    setCor(cor)
+    localStorage.setItem('cor', cor)
+    console.log(localStorage.getItem('cor'))
   }
 
   function mudaTema(){
-    setTema(tema == '0' ? '1' : '0')
-    localStorage.setItem('tema', tema)
-
-    // localStorage.setItem('tema', (tema== '0' ? '1' : '0'))
+    setTema(temas == '0' ? '1' : '0')
+    
+    if(localStorage.getItem('tema') == '0'){
+      localStorage.setItem('tema', '1')
+    }else{
+      localStorage.setItem('tema', '0')
+    }
   }
   
 
   
 
   return (
-    <ContextoTema.Provider value={ {tema, mudaTema, corzinha, mudaCor} }>
+    <ContextoTema.Provider value={ {temas, mudaTema, cor, mudaCor} }>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}/>
