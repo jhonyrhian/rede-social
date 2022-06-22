@@ -30,7 +30,7 @@ export default function Login(){
 
         return(
             <BasePage>
-            <BackgroundColor cor={[tema, cor]}>
+            <BackgroundColor cor={cor} tema={tema}>
                 <ul>
                     <div>
                     <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
@@ -43,20 +43,20 @@ export default function Login(){
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG cor={[tema, cor]} onSubmit={trataSubmit}>
+                    <FormBG cor={cor} tema={tema} onSubmit={trataSubmit}>
                         <div>
                             <h2>Entrar</h2>
                             <p>Insira seu Email e senha para acessar</p>
                         </div>
 
                         <InputWrapper>
-                            <InputStyled cor={[tema, cor]} type="text" placeholder="Email ou usuário" value={username} onChange={(event)=>{setUsername(event.target.value)}} ></InputStyled>
-                            <InputSenhaStyled placeholder="Senha" cor={[tema, cor]} value={senha} onChange={(event)=>{setSenha(event.target.value)}} ></InputSenhaStyled>
-                            <StyledLink cor={[tema, cor]} href="https://www.google.com">Esqueci a senha</StyledLink>
+                            <InputStyled cor={cor} tema={tema} type="text" placeholder="Email ou usuário" value={username} onChange={(event)=>{setUsername(event.target.value)}} ></InputStyled>
+                            <InputSenhaStyled placeholder="Senha" cor={cor} tema={tema} value={senha} onChange={(event)=>{setSenha(event.target.value)}} ></InputSenhaStyled>
+                            <StyledLink cor={cor} tema={tema} href="https://www.google.com">Esqueci a senha</StyledLink>
                         </InputWrapper>
 
-                        <SubmitStyled type="submit" value="Entrar" cor={[tema, cor]} ></SubmitStyled>
-                        <p>Não tem conta? <StyledLink cor={[tema, cor]} href="/signup">Crie uma conta agora</StyledLink></p>
+                        <SubmitStyled type="submit" value="Entrar" cor={cor} tema={tema} ></SubmitStyled>
+                        <p>Não tem conta? <StyledLink cor={cor} tema={tema} href="/signup">Crie uma conta agora</StyledLink></p>
                     </FormBG>
             </BackgroundColor>
             </BasePage>

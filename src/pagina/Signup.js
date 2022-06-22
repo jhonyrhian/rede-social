@@ -36,7 +36,7 @@ export default function Signup(){
 
         return(
             <BasePage>
-            <BackgroundColor cor={[tema, cor]}>
+            <BackgroundColor cor={cor} tema={tema}>
                 <ul>
                     <div>
                     <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
@@ -49,27 +49,27 @@ export default function Signup(){
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG cor={[tema, cor]} onSubmit={trataSubmit}>
+                    <FormBG cor={cor} tema={tema} onSubmit={trataSubmit}>
                         <div>
                             <h2>Criar conta</h2>
                         </div>
                         <InputWrapper operacao="signup">
                             <StyledDiv>
                             <label htmlFor="nome">Nome</label>
-                            <InputStyled required cor={[tema, cor]} id='nome' operacao="signup" type="text" placeholder="EX: Pedro Cardoso" value={nome} onChange={(event)=>{setNome(event.target.value)}}></InputStyled>
+                            <InputStyled required cor={cor} tema={tema} id='nome' operacao="signup" type="text" placeholder="EX: Pedro Cardoso" value={nome} onChange={(event)=>{setNome(event.target.value)}}></InputStyled>
                             <label htmlFor="username">Usuário</label>
-                            <InputStyled required cor={[tema, cor]} id='username' operacao="signup" type="text" placeholder="EX: Pedriin" value={username} onChange={(event)=>{setUsername(event.target.value)}}></InputStyled>
+                            <InputStyled required cor={cor} tema={tema} id='username' operacao="signup" type="text" placeholder="EX: Pedriin" value={username} onChange={(event)=>{setUsername(event.target.value)}}></InputStyled>
                             </StyledDiv>
                             <StyledDiv>
                             <label htmlFor="email">Email</label>
-                            <InputStyled required cor={[tema, cor]} id='email' operacao="signup" type="email" placeholder="email@mail.com" value={email} onChange={(event)=>{setEmail(event.target.value)}}></InputStyled>
+                            <InputStyled required cor={cor} tema={tema} id='email' operacao="signup" type="email" placeholder="email@mail.com" value={email} onChange={(event)=>{setEmail(event.target.value)}}></InputStyled>
                             <label htmlFor="senha">Senha</label>
-                            <InputSenhaStyled required cor={[tema, cor]} id='senha' operacao="signup" placeholder="No mínimo 7 dígitos, letras e numero" value={senha} onChange={(event)=>{setSenha(event.target.value)}}></InputSenhaStyled>
+                            <InputSenhaStyled required cor={cor} tema={tema} id='senha' operacao="signup" placeholder="No mínimo 7 dígitos, letras e numero" value={senha} onChange={(event)=>{setSenha(event.target.value)}}></InputSenhaStyled>
                             </StyledDiv>
                         </InputWrapper>
 
-                        <SubmitStyled type="submit" value="Criar conta"  cor={[tema, cor]} ></SubmitStyled>
-                        <p>Já tem conta? <StyledLink cor={[tema, cor]} href="/">Entrar na conta</StyledLink></p>
+                        <SubmitStyled type="submit" value="Criar conta"  cor={cor} tema={tema} ></SubmitStyled>
+                        <p>Já tem conta? <StyledLink cor={cor} tema={tema} href="/">Entrar na conta</StyledLink></p>
                     </FormBG>
             </BackgroundColor>
             </BasePage>

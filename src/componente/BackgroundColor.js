@@ -8,8 +8,8 @@ const BackgroundColor = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  ${props => {return `${cores[props.cor[0]][props.cor[1]]}`}};
-    color: ${props => {return `${(props.cor[0] == '0')? `#111111` : `#ffffff`}`}};
+    background-color:  ${props => {return `${cores[props.tema][props.cor]}`}};
+    color: ${props => {return `${(props.tema == '0')? `#111111` : `#ffffff`}`}};
     height: 100vh;
 `
 
