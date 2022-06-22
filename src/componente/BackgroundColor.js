@@ -9,7 +9,7 @@ const BackgroundColor = styled.div`
     justify-content: center;
     align-items: center;
     background-color:  ${props => {return `${cores[props.cor[0]][props.cor[1]]}`}};
-    color: ${props => {return `${(props.cor[0] == '0')? `#111` : `#fff`}`}};
+    color: ${props => {return `${(props.cor[0] == '0')? `#111111` : `#ffffff`}`}};
     height: 100vh;
 `
 

@@ -2,6 +2,7 @@ import {useState, useEffect,  useContext} from 'react'
 
 import BasePage from "./BasePage"
 import InputStyled from "../componente/InputStyled"
+import InputSenhaStyled from "../componente/InputSenhaStyled"
 import StyledDiv from "../componente/StyledDiv"
 import SubmitStyled from "../componente/SubmitStyled"
 import StyledLink from "../componente/StyledLink"
@@ -16,17 +17,26 @@ import { BsFillMoonFill } from "react-icons/bs";
 import "./css/Signup.css"
 
 export default function Signup(){
-    const { mudaTema } = useContext(ContextoTema)
-    const { mudaCor } = useContext(ContextoTema)
+    const { mudaTema, tema } = useContext(ContextoTema)
+    const { mudaCor, cor } = useContext(ContextoTema)
 
     const [nome, setNome] = useState('')
-    const [sobrenome, setSobrenome] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
+    function trataSubmit(event){
+        event.preventDefault()
+        localStorage.setItem('nome', nome)
+        localStorage.setItem('username', username)
+        localStorage.setItem('email', email)
+        localStorage.setItem('senha', senha)
+        alert(localStorage.getItem('senha'))
+    }
+
         return(
             <BasePage>
-            <BackgroundColor cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]}>
+            <BackgroundColor cor={[tema, cor]}>
                 <ul>
                     <div>
                     <CoresLista onClick={()=>{mudaCor("0")}} cor="#363636"/>
@@ -39,27 +49,27 @@ export default function Signup(){
                         <CoresLista size="40px" radio="25%" cor="black" onClick={()=>{mudaTema()}} ><BsFillMoonFill color={"white"}/></CoresLista>
                     </div>
                 </ul>
-                    <FormBG cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} onSubmit={(event)=>{event.preventDefault();}}>
+                    <FormBG cor={[tema, cor]} onSubmit={trataSubmit}>
                         <div>
                             <h2>Criar conta</h2>
                         </div>
                         <InputWrapper operacao="signup">
                             <StyledDiv>
                             <label htmlFor="nome">Nome</label>
-                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} id='nome' operacao="signup" type="text" placeholder="EX: Pedro" value={nome} onChange={(event)=>{setNome(event.target.value)}}></InputStyled>
-                            <label htmlFor="sobrenome">Sobrenome</label>
-                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} id='sobrenome' operacao="signup" type="text" placeholder="EX: Cardoso" value={sobrenome} onChange={(event)=>{setSobrenome(event.target.value)}}></InputStyled>
+                            <InputStyled required cor={[tema, cor]} id='nome' operacao="signup" type="text" placeholder="EX: Pedro Cardoso" value={nome} onChange={(event)=>{setNome(event.target.value)}}></InputStyled>
+                            <label htmlFor="username">Usuário</label>
+                            <InputStyled required cor={[tema, cor]} id='username' operacao="signup" type="text" placeholder="EX: Pedriin" value={username} onChange={(event)=>{setUsername(event.target.value)}}></InputStyled>
                             </StyledDiv>
                             <StyledDiv>
                             <label htmlFor="email">Email</label>
-                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} id='email' operacao="signup" type="email" placeholder="email@mail.com" value={email} onChange={(event)=>{setEmail(event.target.value)}}></InputStyled>
+                            <InputStyled required cor={[tema, cor]} id='email' operacao="signup" type="email" placeholder="email@mail.com" value={email} onChange={(event)=>{setEmail(event.target.value)}}></InputStyled>
                             <label htmlFor="senha">Senha</label>
-                            <InputStyled cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} id='senha' type="password" operacao="signup" placeholder="No mínimo 7 dígitos, letras e numero" value={senha} onChange={(event)=>{setSenha(event.target.value)}}></InputStyled>
+                            <InputSenhaStyled required cor={[tema, cor]} id='senha' operacao="signup" placeholder="No mínimo 7 dígitos, letras e numero" value={senha} onChange={(event)=>{setSenha(event.target.value)}}></InputSenhaStyled>
                             </StyledDiv>
                         </InputWrapper>
 
-                        <SubmitStyled type="submit"  cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} ></SubmitStyled>
-                        <p>Já tem conta? <StyledLink cor={[localStorage.getItem('tema') ,localStorage.getItem('cor')]} href="/">Entrar na conta</StyledLink></p>
+                        <SubmitStyled type="submit" value="Criar conta"  cor={[tema, cor]} ></SubmitStyled>
+                        <p>Já tem conta? <StyledLink cor={[tema, cor]} href="/">Entrar na conta</StyledLink></p>
                     </FormBG>
             </BackgroundColor>
             </BasePage>

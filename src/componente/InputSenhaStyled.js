@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 var cores =["#ffffff","#2470ff","#ff2277","#00ba47","#f2aa02"]
 
-const InputStyled = styled.input.attrs({ type: "text" })`
+const InputStyled = styled.input.attrs({ type: "password" })`
     color:  ${props => {return `${(props.cor[0] == '1')? `${cores[props.cor[1]]}`: `black`}`}};
     background-color: ${props => {return `${(props.cor[0] == '0')? `${cores[props.cor[1]]}20`: `transparent`}`}};
     background-color: ${props => {if(props.cor[0] =='0' && props.cor[1] == '0'){return `#00000020`}}};
