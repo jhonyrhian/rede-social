@@ -3,15 +3,15 @@ import {useState, useEffect,  useContext} from 'react'
 import BasePage from "./BasePage"
 import InputStyled from "../componente/InputStyled"
 import InputSenhaStyled from "../componente/InputSenhaStyled"
-import StyledDiv from "../componente/StyledDiv"
 import SubmitStyled from "../componente/SubmitStyled"
 import StyledLink from "../componente/StyledLink"
-import StyledCheckbox from "../componente/StyledCheckbox"
+import Checkbox from "../componente/Checkbox"
 import CoresLista from "../componente/CoresLista"
 import BackgroundColor from "../componente/BackgroundColor"
 import InputWrapper from "../componente/InputWrapper"
 import FormBG from "../componente/FormBG"
 import ContextoTema from '../ContextoTema'
+import StyledDiv from "../componente/StyledDiv"
 
 import { BsFillMoonFill } from "react-icons/bs";
 
@@ -47,10 +47,7 @@ export default function Signup(){
                     <CoresLista onClick={()=>{mudaCor("4")}} cor={4}/>
                     </div>
                     <div>
-                        <StyledCheckbox cor={cor} tema={tema} onChange={()=>{mudaTema()}}>
-                        <input type="checkbox"/>
-                        <span/>
-                        </StyledCheckbox>
+                        <Checkbox/>
                     </div>
                 </ul>
                     <FormBG cor={cor} tema={tema} onSubmit={trataSubmit}>

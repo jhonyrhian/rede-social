@@ -5,20 +5,18 @@ import InputStyled from "../componente/InputStyled"
 import InputSenhaStyled from "../componente/InputSenhaStyled"
 import SubmitStyled from "../componente/SubmitStyled"
 import StyledLink from "../componente/StyledLink"
-import StyledCheckbox from "../componente/StyledCheckbox"
+import Checkbox from "../componente/Checkbox"
 import CoresLista from "../componente/CoresLista"
 import BackgroundColor from "../componente/BackgroundColor"
 import InputWrapper from "../componente/InputWrapper"
 import FormBG from "../componente/FormBG"
 import ContextoTema from '../ContextoTema'
 
-import { BsFillMoonFill } from "react-icons/bs";
-
 import "./css/Login.css"
 
 export default function Login(){
-    const { mudaTema, tema } = useContext(ContextoTema)
-    const { mudaCor, cor } = useContext(ContextoTema)
+    const { mudaTema, tema, mudaCor, cor } = useContext(ContextoTema)
+    
 
     const [username, setUsername] = useState('')
     const [senha, setSenha] = useState('')
@@ -40,10 +38,7 @@ export default function Login(){
                     <CoresLista onClick={()=>{mudaCor("4")}} cor={4}/>
                     </div>
                     <div>
-                        <StyledCheckbox cor={cor} tema={tema} onChange={()=>{mudaTema()}}>
-                        <input type="checkbox"/>
-                        <span/>
-                        </StyledCheckbox>
+                        <Checkbox/>
                     </div>
                 </ul>
                     <FormBG cor={cor} tema={tema} onSubmit={trataSubmit}>

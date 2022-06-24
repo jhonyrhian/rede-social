@@ -3,21 +3,17 @@ import styled from "styled-components";
 var cores = ["#363636","#2b75ff","#ff2277","#00ba47","#f2aa02"]
 
 const StyledCheckbox = styled.label`
-    /* width: 45px; */
-    /* height: 25px; */
+    
     margin: 0;
     width: 3rem;
     height: 1.55rem;
-    background-color: #363636;
+    background-color: ${props => {return `${cores[props.cor]}`}};
     border-radius: 50px;
-    box-shadow: inset 0px 0px 10px #000;
     cursor: pointer;
     transition: 0.4s;
     position: relative;
 
     input{
-        /* width: 45px; */
-        /* height: 25px; */
         width: 3rem;
         height: 1.55rem;
         cursor: pointer;
@@ -33,28 +29,25 @@ const StyledCheckbox = styled.label`
     input:checked{
         background-color: ${props => {return `${cores[props.cor]}`}};
         background-color: ${props => {if(props.tema =='1' && props.cor == '0'){return `#fff`}}};
-        box-shadow: inset 0px 0px 6px #00000040;
     }
 
     span{
         /* width: 25px; */
         /* height: 25px; */
-        height: 1.55em;
-        width: 1.55em;
+        height: 1.1em;
+        width: 1.1em;
         border-radius: 50%;
-        background-color: ${props => {return `${cores[props.cor]}`}};
-        background-color: ${props => {if(props.tema =='0' && props.cor == '0'){return `#eee`}}};
+        background-color: #eee;
         position: absolute;
-        top: 0;
-        left: 0;
-        box-shadow: 1px 0px 4px #00000040;
+        top: 14.1%;
+        left: 3px;
         transform: scale(1.1);
         transition: 0.4s;
     }
 
     input:checked + span{
         background-color: #363636;
-        left: 50%;
+        left: 54%;
     }
 
 `
