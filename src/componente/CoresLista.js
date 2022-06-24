@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+var cores = ["#363636","#2b75ff","#ff2277","#00ba47","#ffd400"]
+
 const CoresLista = styled.li`
-    background-color: ${props => {return `${props.cor}`}};
+    background-color: ${props => {return `${cores[props.cor]}`}};
     height: 24px;
     width: 24px;
     height: ${props => { return `${props.size}` } };
