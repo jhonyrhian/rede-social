@@ -9,6 +9,7 @@ const InputStyled = styled.input.attrs({ type: "text" })`
     border: solid 1px;
     border-color: ${props => {return `${cores[props.cor]}`}};
     border-color: ${props => {if(props.tema =='0' && props.cor == '0'){return `#111111`}}};
+    border-color: ${props => {if(props.status =='1'){return `red`}}};
     
     border-radius: 3px;
     
@@ -23,6 +24,7 @@ const InputStyled = styled.input.attrs({ type: "text" })`
     &::placeholder{
         color: ${props => {return `${(props.tema == '0')? `${cores[props.cor]}f1`: `${cores[props.cor]}80`}`}};
         color: ${props => {if(props.tema =='0' && props.cor == '0'){return `#11111199`}}};
+        color: ${props => {if(props.status =='1'){return `red`}}};
     }
     &:focus{
         outline: solid red 1px;

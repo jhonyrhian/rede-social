@@ -1,16 +1,17 @@
 import {useState, useEffect, useContext } from 'react'
 
 import BasePage from "./BasePage"
-import InputStyled from "../componente/InputStyled"
-import InputSenhaStyled from "../componente/InputSenhaStyled"
-import SubmitStyled from "../componente/SubmitStyled"
-import StyledLink from "../componente/StyledLink"
-import Checkbox from "../componente/Checkbox"
-import CoresLista from "../componente/CoresLista"
-import BackgroundColor from "../componente/BackgroundColor"
-import InputWrapper from "../componente/InputWrapper"
-import FormBG from "../componente/FormBG"
+import InputStyled from "../componente/styled/InputStyled"
+import InputText from "../componente/InputText"
+import InputSenhaStyled from "../componente/styled/InputSenhaStyled"
+import SubmitStyled from "../componente/styled/SubmitStyled"
+import StyledLink from "../componente/styled/StyledLink"
+import CoresLista from "../componente/styled/CoresLista"
+import BackgroundColor from "../componente/styled/BackgroundColor"
+import InputWrapper from "../componente/styled/InputWrapper"
+import FormBG from "../componente/styled/FormBG"
 import ContextoTema from '../ContextoTema'
+import Checkbox from "../componente/Checkbox"
 
 import "./css/Login.css"
 
@@ -20,9 +21,23 @@ export default function Login(){
 
     const [username, setUsername] = useState('')
     const [senha, setSenha] = useState('')
+    // const [error, setError] = useState('0')
+    var error = '1'
 
     function trataSubmit(event){
+        
+        var localnome = localStorage.getItem('nome')
+        var localusername = localStorage.getItem('username')
+        var localemail = localStorage.getItem('email')
+        var localsenha = localStorage.getItem('senha')
         event.preventDefault();
+        if(username == localusername && senha == localsenha || username == localemail && senha == localsenha){
+            alert("Login bem sucedido")
+        }else{
+            // setError('1')
+            // alert("Tudo errado")
+        }
+
     }
 
 
@@ -48,7 +63,9 @@ export default function Login(){
                         </div>
 
                         <InputWrapper>
-                            <InputStyled cor={cor} tema={tema} type="text" placeholder="Email ou usuário" value={username} onChange={(event)=>{setUsername(event.target.value)}} ></InputStyled>
+                            {/* <InputStyled status={error} cor={cor} tema={tema} type="text" placeholder="Email ou usuário" value={username} onChangeFunction={(event)=>{setUsername(event.target.value)}} ></InputStyled> */}
+                            <InputText status={error} cor={cor} tema={tema} type="text" placeholder="Email ou usuário" value={username} onChangeFunction={(event)=>{setUsername(event.target.value)}} ></InputText>
+                            
                             <InputSenhaStyled placeholder="Senha" cor={cor} tema={tema} value={senha} onChange={(event)=>{setSenha(event.target.value)}} ></InputSenhaStyled>
                             <StyledLink cor={cor} tema={tema} href="https://www.google.com">Esqueci a senha</StyledLink>
                         </InputWrapper>

@@ -5,9 +5,6 @@ var cores =["#ffffff","#2470ff","#ff1770","#00ba47","#f2aa02"]
 var coresEscuras = ["#0a0a0a","#0948db","#e80049","#068a36","#db8009"]
 
 
-
-
-
 const SubmitStyled = styled.input.attrs({ type: "submit" })`
     background-color:  ${props => {return `${cores[props.cor]}`}};
     background-color: ${props => {if(props.tema =='0' && props.cor == '0'){return `#111`}}};

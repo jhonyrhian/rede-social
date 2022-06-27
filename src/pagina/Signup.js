@@ -1,17 +1,17 @@
 import {useState, useEffect,  useContext} from 'react'
 
 import BasePage from "./BasePage"
-import InputStyled from "../componente/InputStyled"
-import InputSenhaStyled from "../componente/InputSenhaStyled"
-import SubmitStyled from "../componente/SubmitStyled"
-import StyledLink from "../componente/StyledLink"
+import InputStyled from "../componente/styled/InputStyled"
+import InputSenhaStyled from "../componente/styled/InputSenhaStyled"
+import SubmitStyled from "../componente/styled/SubmitStyled"
+import StyledLink from "../componente/styled/StyledLink"
 import Checkbox from "../componente/Checkbox"
-import CoresLista from "../componente/CoresLista"
-import BackgroundColor from "../componente/BackgroundColor"
-import InputWrapper from "../componente/InputWrapper"
-import FormBG from "../componente/FormBG"
+import CoresLista from "../componente/styled/CoresLista"
+import BackgroundColor from "../componente/styled/BackgroundColor"
+import InputWrapper from "../componente/styled/InputWrapper"
+import FormBG from "../componente/styled/FormBG"
 import ContextoTema from '../ContextoTema'
-import StyledDiv from "../componente/StyledDiv"
+import StyledDiv from "../componente/styled/StyledDiv"
 
 import { BsFillMoonFill } from "react-icons/bs";
 
